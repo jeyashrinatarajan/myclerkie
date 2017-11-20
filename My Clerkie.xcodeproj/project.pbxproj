@@ -12,9 +12,18 @@
 		B71F7E0F1FC1192E006A1CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71F7E0D1FC1192E006A1CCF /* Main.storyboard */; };
 		B71F7E111FC1192E006A1CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B71F7E101FC1192E006A1CCF /* Assets.xcassets */; };
 		B71F7E141FC1192E006A1CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71F7E121FC1192E006A1CCF /* LaunchScreen.storyboard */; };
+		B71F7E261FC11B42006A1CCF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E251FC11B42006A1CCF /* GradientView.swift */; };
+		B71F7E291FC16F33006A1CCF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E281FC16F33006A1CCF /* RegisterViewController.swift */; };
+		B71F7E2B1FC17BF5006A1CCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B71F7E2A1FC17BF5006A1CCF /* GoogleService-Info.plist */; };
+		B71F7E2D1FC1834A006A1CCF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E2C1FC1834A006A1CCF /* HomeViewController.swift */; };
+		B71F7E2F1FC18465006A1CCF /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E2E1FC18465006A1CCF /* PasswordResetViewController.swift */; };
+		C82D9B5F1E19662714187B33 /* Pods_My_Clerkie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9B15712B7851E63D54440F /* Pods_My_Clerkie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		134A4F13EB57FF664D26B985 /* Pods-My Clerkie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Clerkie.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Clerkie/Pods-My Clerkie.release.xcconfig"; sourceTree = "<group>"; };
+		38EC9A98302F5B128A2F8547 /* Pods-My Clerkie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Clerkie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Clerkie/Pods-My Clerkie.debug.xcconfig"; sourceTree = "<group>"; };
+		8C9B15712B7851E63D54440F /* Pods_My_Clerkie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Clerkie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F7E061FC1192E006A1CCF /* My Clerkie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Clerkie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F7E091FC1192E006A1CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B71F7E0B1FC1192E006A1CCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +31,11 @@
 		B71F7E101FC1192E006A1CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B71F7E131FC1192E006A1CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B71F7E151FC1192E006A1CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B71F7E251FC11B42006A1CCF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		B71F7E281FC16F33006A1CCF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B71F7E2A1FC17BF5006A1CCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B71F7E2C1FC1834A006A1CCF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B71F7E2E1FC18465006A1CCF /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82D9B5F1E19662714187B33 /* Pods_My_Clerkie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		079B86658E3F283F9C7FCBFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C9B15712B7851E63D54440F /* Pods_My_Clerkie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B33E75FE11DF889CAFF78415 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38EC9A98302F5B128A2F8547 /* Pods-My Clerkie.debug.xcconfig */,
+				134A4F13EB57FF664D26B985 /* Pods-My Clerkie.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B71F7DFD1FC1192E006A1CCF = {
 			isa = PBXGroup;
 			children = (
 				B71F7E081FC1192E006A1CCF /* My Clerkie */,
 				B71F7E071FC1192E006A1CCF /* Products */,
+				B33E75FE11DF889CAFF78415 /* Pods */,
+				079B86658E3F283F9C7FCBFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +88,27 @@
 		B71F7E081FC1192E006A1CCF /* My Clerkie */ = {
 			isa = PBXGroup;
 			children = (
+				B71F7E241FC11B2A006A1CCF /* Utilities */,
 				B71F7E091FC1192E006A1CCF /* AppDelegate.swift */,
 				B71F7E0B1FC1192E006A1CCF /* ViewController.swift */,
+				B71F7E281FC16F33006A1CCF /* RegisterViewController.swift */,
+				B71F7E2C1FC1834A006A1CCF /* HomeViewController.swift */,
+				B71F7E2E1FC18465006A1CCF /* PasswordResetViewController.swift */,
 				B71F7E0D1FC1192E006A1CCF /* Main.storyboard */,
 				B71F7E101FC1192E006A1CCF /* Assets.xcassets */,
 				B71F7E121FC1192E006A1CCF /* LaunchScreen.storyboard */,
 				B71F7E151FC1192E006A1CCF /* Info.plist */,
+				B71F7E2A1FC17BF5006A1CCF /* GoogleService-Info.plist */,
 			);
 			path = "My Clerkie";
+			sourceTree = "<group>";
+		};
+		B71F7E241FC11B2A006A1CCF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B71F7E251FC11B42006A1CCF /* GradientView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +118,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B71F7E181FC1192E006A1CCF /* Build configuration list for PBXNativeTarget "My Clerkie" */;
 			buildPhases = (
+				C5A7FE96B8AE5E1F731DAB0B /* [CP] Check Pods Manifest.lock */,
 				B71F7E021FC1192E006A1CCF /* Sources */,
 				B71F7E031FC1192E006A1CCF /* Frameworks */,
 				B71F7E041FC1192E006A1CCF /* Resources */,
+				13DEF03FCEE509430A9E9420 /* [CP] Embed Pods Frameworks */,
+				70BAA8A67F62CBD08CF4B459 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71F7E141FC1192E006A1CCF /* LaunchScreen.storyboard in Resources */,
+				B71F7E2B1FC17BF5006A1CCF /* GoogleService-Info.plist in Resources */,
 				B71F7E111FC1192E006A1CCF /* Assets.xcassets in Resources */,
 				B71F7E0F1FC1192E006A1CCF /* Main.storyboard in Resources */,
 			);
@@ -131,13 +182,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13DEF03FCEE509430A9E9420 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Clerkie/Pods-My Clerkie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70BAA8A67F62CBD08CF4B459 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Clerkie/Pods-My Clerkie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5A7FE96B8AE5E1F731DAB0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B71F7E021FC1192E006A1CCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B71F7E2D1FC1834A006A1CCF /* HomeViewController.swift in Sources */,
+				B71F7E2F1FC18465006A1CCF /* PasswordResetViewController.swift in Sources */,
 				B71F7E0C1FC1192E006A1CCF /* ViewController.swift in Sources */,
 				B71F7E0A1FC1192E006A1CCF /* AppDelegate.swift in Sources */,
+				B71F7E261FC11B42006A1CCF /* GradientView.swift in Sources */,
+				B71F7E291FC16F33006A1CCF /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +375,7 @@
 		};
 		B71F7E191FC1192E006A1CCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38EC9A98302F5B128A2F8547 /* Pods-My Clerkie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +391,7 @@
 		};
 		B71F7E1A1FC1192E006A1CCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 134A4F13EB57FF664D26B985 /* Pods-My Clerkie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

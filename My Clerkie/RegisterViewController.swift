@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RegisterViewController.swift
 //  My Clerkie
 //
 //  Created by Jeyashri Natarajan on 11/18/17.
@@ -10,22 +10,21 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ViewController: UIViewController,UITextFieldDelegate {
+class RegisterViewController: UIViewController,UITextFieldDelegate {
 
-    @IBOutlet var signinButton: UIButton!
-    @IBOutlet var registerButton: UIButton!
-    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var usernameTextfield: UITextField!
+    @IBOutlet var emailTextfield: UITextField!
+    @IBOutlet var phonenumberTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet var confirmTextfield: UITextField!
+    @IBOutlet var registerButton: UIButton!
+    @IBOutlet var loginButton: UIButton!
     
-     var activeTextfield:UITextField!
+    var activeTextfield:UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //design the signin button
-        signinButton.layer.cornerRadius = 6
-        signinButton.clipsToBounds = true
-        
+
         //design the register buttton
         registerButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.cornerRadius = 6
@@ -36,8 +35,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
         let center:NotificationCenter = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-    
     }
+    
     @objc func keyboardDidShow(notification:Notification) {
         let info:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
@@ -50,58 +49,58 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 UIView.animate(withDuration: 0.25,delay:0.0,options:UIViewAnimationOptions.curveEaseIn,animations:{self.view.frame = CGRect(x:0,y:self.view.frame.origin.y - (editingTextfieldY - (keyboardY - 120)),width:self.view.bounds.width,height:self.view.bounds.height)},completion:nil)
             }
         }
+        
     }
-        
+    
     @objc func keyboardWillHide (notification:Notification) {
-            UIView.animate(withDuration: 0.25,delay:0.0,options:UIViewAnimationOptions.curveEaseIn,animations:{self.view.frame = CGRect(x:0,y:0,width:self.view.bounds.width,height:self.view.bounds.height)},completion:nil)
+        UIView.animate(withDuration: 0.25,delay:0.0,options:UIViewAnimationOptions.curveEaseIn,animations:{self.view.frame = CGRect(x:0,y:0,width:self.view.bounds.width,height:self.view.bounds.height)},completion:nil)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextfield = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case usernameTextfield:
+            emailTextfield.becomeFirstResponder()
+        case emailTextfield:
+            phonenumberTextfield.becomeFirstResponder()
+        case phonenumberTextfield:
+            passwordTextfield.becomeFirstResponder()
+        case passwordTextfield:
+            confirmTextfield.becomeFirstResponder()
+        default:
+            confirmTextfield.resignFirstResponder()
         }
-        
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            activeTextfield = textField
-        }
-        
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            switch textField {
-            case usernameTextField:
-                passwordTextfield.becomeFirstResponder()
-            default:
-                passwordTextfield.resignFirstResponder()
-            }
-            return true
-        }
+        return true
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-    @IBAction func signinPressed(_ sender: UIButton) {
-        if self.usernameTextField.text == "" || self.passwordTextfield.text == "" {
-            
-            //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
-            
-            let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+    
+    @IBAction func registerPressed(_ sender: UIButton) {
+        if emailTextfield.text == "" || usernameTextfield.text == "" || passwordTextfield.text == "" || confirmTextfield.text == "" || phonenumberTextfield.text == "" {
+            let alertController = UIAlertController(title: "Error", message: "Please fill all the fields", preferredStyle: .alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             
-            self.present(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
             
         } else {
-            
-            Auth.auth().signIn(withEmail: self.usernameTextField.text!, password: self.passwordTextfield.text!) { (user, error) in
+            Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
                 
                 if error == nil {
+                    print("You have successfully signed up")
+                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
-                    //Print into the console if successfully logged in
-                    print("You have successfully logged in")
-                    
-                    //Go to the HomeViewController if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
                     self.present(vc!, animated: true, completion: nil)
                     
                 } else {
-                    
-                    //Tells the user that there is an error and then gets firebase to tell them the error
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -112,5 +111,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             }
         }
     }
+    
 }
+
 
