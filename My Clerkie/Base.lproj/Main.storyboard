@@ -491,17 +491,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljb-9K-3vA">
-                                <rect key="frame" x="166" y="323" width="82" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kw3-uJ-Cej">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rcL-gn-c7J">
+                                    <size key="itemSize" width="375" height="375"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartCell" id="OOR-K9-95k">
+                                        <rect key="frame" x="0.0" y="151" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="375" height="375"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="1nT-by-kwJ" id="4B9-QH-fbB"/>
+                                    <outlet property="delegate" destination="1nT-by-kwJ" id="pdP-UY-IXt"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kw3-uJ-Cej" firstAttribute="top" secondItem="Fbu-l5-Rew" secondAttribute="top" id="1i4-Bf-Tfw"/>
+                            <constraint firstItem="4T5-Y7-jJ0" firstAttribute="trailing" secondItem="kw3-uJ-Cej" secondAttribute="trailing" id="5yy-EY-LpQ"/>
+                            <constraint firstItem="kw3-uJ-Cej" firstAttribute="leading" secondItem="4T5-Y7-jJ0" secondAttribute="leading" id="agX-96-5X1"/>
+                            <constraint firstItem="4T5-Y7-jJ0" firstAttribute="bottom" secondItem="kw3-uJ-Cej" secondAttribute="bottom" id="qy9-mI-A7S"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4T5-Y7-jJ0"/>
                     </view>
+                    <connections>
+                        <outlet property="chartCollectionView" destination="kw3-uJ-Cej" id="Zfa-2f-I2Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cmm-U4-WBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -585,12 +612,23 @@
                                             <action selector="resetPasswordPressed:" destination="DqK-Ex-V0e" eventType="touchUpInside" id="uT8-Hl-JVz"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5u-7v-4bz">
+                                        <rect key="frame" x="16" y="5" width="60" height="30"/>
+                                        <state key="normal" title="&lt; Back">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="lHQ-a7-3Tw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="U5u-7v-4bz" firstAttribute="top" secondItem="0Ws-Rt-THw" secondAttribute="top" constant="5" id="ElS-hE-ZvY"/>
                                     <constraint firstItem="Nwc-FW-teE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Ws-Rt-THw" secondAttribute="leading" constant="60" id="GSF-XU-0aF"/>
                                     <constraint firstItem="HLd-kG-jvK" firstAttribute="top" secondItem="0Ws-Rt-THw" secondAttribute="top" constant="120" id="NiQ-L6-mkE"/>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Nwc-FW-teE" secondAttribute="trailing" constant="60" id="ZTs-EK-yMz"/>
+                                    <constraint firstItem="U5u-7v-4bz" firstAttribute="leading" secondItem="0Ws-Rt-THw" secondAttribute="leading" constant="16" id="cmc-fb-hsl"/>
                                     <constraint firstItem="axl-n0-PC2" firstAttribute="top" secondItem="Nwc-FW-teE" secondAttribute="bottom" constant="35" id="t4U-Yu-dKL"/>
                                     <constraint firstItem="Nwc-FW-teE" firstAttribute="top" secondItem="HLd-kG-jvK" secondAttribute="bottom" constant="65" id="zSw-ep-1re"/>
                                 </constraints>
@@ -623,7 +661,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ea0-ZN-qu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="G3l-mt-sZS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1519" y="36"/>
+            <point key="canvasLocation" x="1517.5999999999999" y="35.532233883058474"/>
         </scene>
     </scenes>
     <resources>
@@ -632,4 +670,7 @@
         <image name="chat_default" width="25" height="25"/>
         <image name="settings_default" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lHQ-a7-3Tw"/>
+    </inferredMetricsTieBreakers>
 </document>
