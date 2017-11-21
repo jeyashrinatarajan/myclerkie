@@ -10,13 +10,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class PasswordResetViewController: UIViewController {
+class PasswordResetViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet var emailTextfield: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
 
     @IBAction func resetPasswordPressed(_ sender: UIButton) {
@@ -41,11 +42,15 @@ class PasswordResetViewController: UIViewController {
                     title = "Success!"
                     message = "Password reset email sent."
                     self.emailTextfield.text = ""
+                    
                 }
                 
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                    self.present(vc, animated: true, completion: nil)
+                })
                 alertController.addAction(defaultAction)
                 
                 self.present(alertController, animated: true, completion: nil)
@@ -53,5 +58,14 @@ class PasswordResetViewController: UIViewController {
             })
             
         }
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        emailTextfield.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {  
+        emailTextfield.resignFirstResponder()
+        return true
     }
 }

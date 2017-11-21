@@ -36,8 +36,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
         let center:NotificationCenter = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-    
+        
+        //to dismiss keyboard
+        self.hideKeyboard()
     }
+    
     @objc func keyboardDidShow(notification:Notification) {
         let info:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
@@ -74,6 +77,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
     @IBAction func signinPressed(_ sender: UIButton) {
         if self.usernameTextField.text == "" || self.passwordTextfield.text == "" {
             
@@ -113,4 +117,19 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
     }
 }
-
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
+}

@@ -11,8 +11,7 @@ import Firebase
 import FirebaseAuth
 
 class RegisterViewController: UIViewController,UITextFieldDelegate {
-
-    @IBOutlet var usernameTextfield: UITextField!
+    
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var phonenumberTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
@@ -24,7 +23,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //design the register buttton
         registerButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.cornerRadius = 6
@@ -35,6 +34,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         let center:NotificationCenter = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        //to dismiss keyboard
+        self.hideKeyboard()
     }
     
     @objc func keyboardDidShow(notification:Notification) {
@@ -49,12 +51,12 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                 UIView.animate(withDuration: 0.25,delay:0.0,options:UIViewAnimationOptions.curveEaseIn,animations:{self.view.frame = CGRect(x:0,y:self.view.frame.origin.y - (editingTextfieldY - (keyboardY - 120)),width:self.view.bounds.width,height:self.view.bounds.height)},completion:nil)
             }
         }
-        
     }
     
     @objc func keyboardWillHide (notification:Notification) {
         UIView.animate(withDuration: 0.25,delay:0.0,options:UIViewAnimationOptions.curveEaseIn,animations:{self.view.frame = CGRect(x:0,y:0,width:self.view.bounds.width,height:self.view.bounds.height)},completion:nil)
     }
+  
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextfield = textField
@@ -62,8 +64,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case usernameTextfield:
-            emailTextfield.becomeFirstResponder()
         case emailTextfield:
             phonenumberTextfield.becomeFirstResponder()
         case phonenumberTextfield:
@@ -82,36 +82,56 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func registerPressed(_ sender: UIButton) {
-        if emailTextfield.text == "" || usernameTextfield.text == "" || passwordTextfield.text == "" || confirmTextfield.text == "" || phonenumberTextfield.text == "" {
+        if emailTextfield.text == "" ||  passwordTextfield.text == "" || confirmTextfield.text == "" || phonenumberTextfield.text == "" {
             let alertController = UIAlertController(title: "Error", message: "Please fill all the fields", preferredStyle: .alert)
-            
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
-            
             present(alertController, animated: true, completion: nil)
             
-        } else {
+        } else if passwordTextfield.text != confirmTextfield.text{
+            
+            let alertController = UIAlertController(title: "Error", message: "Password and confirm password do not match", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+        }else if validatePhone(value: phonenumberTextfield.text!) != true {
+            let alertController = UIAlertController(title: "Error", message: "Please enter a valid phone number", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            
+        }else {
             Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
                 
                 if error == nil {
-                    print("You have successfully signed up")
-                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
+                    self.emailTextfield.text = ""
+                    self.phonenumberTextfield.text = ""
+                    self.passwordTextfield.text = ""
+                    self.confirmTextfield.text = ""
+                    let alertController = UIAlertController(title: "Registration Successful", message: "Your registration is complete", preferredStyle: .alert)
                     
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                    self.present(vc!, animated: true, completion: nil)
-                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+                        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                        self.present(vc, animated: true, completion: nil)
+                    })
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
-                    
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
         }
     }
     
+    func validatePhone(value: String) -> Bool {
+        let phoneRegex = "[23456789][0-9]{6}([0-9]{3})?"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        let result =  phoneTest.evaluate(with: value)
+        return result
+    }
 }
-
 

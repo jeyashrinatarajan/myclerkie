@@ -48,7 +48,7 @@ class GradientView: UIView {
         
         layer.colors = [FirstColor.cgColor,SecondColor.cgColor]
         
-        layer.locations = [0.3]
+        layer.locations = [0.4]
         
     }
     

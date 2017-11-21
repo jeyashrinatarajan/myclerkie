@@ -17,6 +17,9 @@
 		B71F7E2B1FC17BF5006A1CCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B71F7E2A1FC17BF5006A1CCF /* GoogleService-Info.plist */; };
 		B71F7E2D1FC1834A006A1CCF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E2C1FC1834A006A1CCF /* HomeViewController.swift */; };
 		B71F7E2F1FC18465006A1CCF /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E2E1FC18465006A1CCF /* PasswordResetViewController.swift */; };
+		B71F7E311FC2907C006A1CCF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E301FC2907C006A1CCF /* SettingsViewController.swift */; };
+		B71F7E331FC29093006A1CCF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E321FC29093006A1CCF /* ChatViewController.swift */; };
+		B71F7E351FC290A4006A1CCF /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E341FC290A4006A1CCF /* ChartViewController.swift */; };
 		C82D9B5F1E19662714187B33 /* Pods_My_Clerkie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9B15712B7851E63D54440F /* Pods_My_Clerkie.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,9 @@
 		B71F7E2A1FC17BF5006A1CCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B71F7E2C1FC1834A006A1CCF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B71F7E2E1FC18465006A1CCF /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		B71F7E301FC2907C006A1CCF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B71F7E321FC29093006A1CCF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		B71F7E341FC290A4006A1CCF /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +98,11 @@
 				B71F7E091FC1192E006A1CCF /* AppDelegate.swift */,
 				B71F7E0B1FC1192E006A1CCF /* ViewController.swift */,
 				B71F7E281FC16F33006A1CCF /* RegisterViewController.swift */,
-				B71F7E2C1FC1834A006A1CCF /* HomeViewController.swift */,
 				B71F7E2E1FC18465006A1CCF /* PasswordResetViewController.swift */,
+				B71F7E2C1FC1834A006A1CCF /* HomeViewController.swift */,
+				B71F7E321FC29093006A1CCF /* ChatViewController.swift */,
+				B71F7E341FC290A4006A1CCF /* ChartViewController.swift */,
+				B71F7E301FC2907C006A1CCF /* SettingsViewController.swift */,
 				B71F7E0D1FC1192E006A1CCF /* Main.storyboard */,
 				B71F7E101FC1192E006A1CCF /* Assets.xcassets */,
 				B71F7E121FC1192E006A1CCF /* LaunchScreen.storyboard */,
@@ -237,7 +246,10 @@
 			files = (
 				B71F7E2D1FC1834A006A1CCF /* HomeViewController.swift in Sources */,
 				B71F7E2F1FC18465006A1CCF /* PasswordResetViewController.swift in Sources */,
+				B71F7E331FC29093006A1CCF /* ChatViewController.swift in Sources */,
+				B71F7E311FC2907C006A1CCF /* SettingsViewController.swift in Sources */,
 				B71F7E0C1FC1192E006A1CCF /* ViewController.swift in Sources */,
+				B71F7E351FC290A4006A1CCF /* ChartViewController.swift in Sources */,
 				B71F7E0A1FC1192E006A1CCF /* AppDelegate.swift in Sources */,
 				B71F7E261FC11B42006A1CCF /* GradientView.swift in Sources */,
 				B71F7E291FC16F33006A1CCF /* RegisterViewController.swift in Sources */,
