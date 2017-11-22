@@ -11,7 +11,7 @@ import UIKit
 class ChartViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
     @IBOutlet var chartCollectionView: UICollectionView!
-    
+
     fileprivate let pictureCellReuseIdentifier = "ChartCell"
     
     override func viewDidLoad() {
