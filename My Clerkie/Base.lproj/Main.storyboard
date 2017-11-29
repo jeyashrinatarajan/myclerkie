@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -471,22 +472,20 @@
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dO-As-tFa">
-                                        <rect key="frame" x="8" y="5" width="305" height="40"/>
+                                        <rect key="frame" x="8" y="5" width="295" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alo-Fd-dtr">
-                                        <rect key="frame" x="321" y="5" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="kzX-iU-Seq"/>
-                                        </constraints>
+                                        <rect key="frame" x="311" y="5" width="56" height="40"/>
                                         <state key="normal" title="Send"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94273477157360408" green="0.94273477157360408" blue="0.94273477157360408" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="6dO-As-tFa" firstAttribute="top" secondItem="e34-Wg-sa7" secondAttribute="top" constant="5" id="1Ac-dd-dOF"/>
+                                    <constraint firstItem="alo-Fd-dtr" firstAttribute="width" secondItem="e34-Wg-sa7" secondAttribute="width" multiplier="0.15" id="87z-TD-DCL"/>
                                     <constraint firstAttribute="trailing" secondItem="alo-Fd-dtr" secondAttribute="trailing" constant="8" id="CAt-gN-KMv"/>
                                     <constraint firstItem="alo-Fd-dtr" firstAttribute="top" secondItem="e34-Wg-sa7" secondAttribute="top" constant="5" id="Vl3-cl-yWL"/>
                                     <constraint firstAttribute="bottom" secondItem="6dO-As-tFa" secondAttribute="bottom" constant="5" id="bZl-Kr-WiY"/>
@@ -534,21 +533,36 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kw3-uJ-Cej">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="50" id="rcL-gn-c7J">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="rcL-gn-c7J">
                                     <size key="itemSize" width="366" height="500"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="50" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartCell" id="OOR-K9-95k">
-                                        <rect key="frame" x="9.5" y="50" width="366" height="500"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartCell" id="OOR-K9-95k" customClass="ChartViewCell" customModule="My_Clerkie" customModuleProvider="target">
+                                        <rect key="frame" x="4.5" y="50" width="366" height="500"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoi-Wn-akZ">
+                                                    <rect key="frame" x="183" y="10" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="xoi-Wn-akZ" firstAttribute="centerX" secondItem="OOR-K9-95k" secondAttribute="centerX" id="b3Z-UI-Oy0"/>
+                                            <constraint firstItem="xoi-Wn-akZ" firstAttribute="top" secondItem="OOR-K9-95k" secondAttribute="top" constant="10" id="cdh-Wg-Qga"/>
+                                        </constraints>
                                         <size key="customSize" width="366" height="500"/>
+                                        <connections>
+                                            <outlet property="chartTitleLabel" destination="xoi-Wn-akZ" id="FQf-9C-clf"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -583,9 +597,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqx-XG-ThS">
-                                <rect key="frame" x="126" y="318" width="122" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqx-XG-ThS">
+                                <rect key="frame" x="161" y="587" width="52" height="30"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
                                     <action selector="logoutPressed:" destination="HuI-2v-bri" eventType="touchUpInside" id="GmV-zU-Gxm"/>
@@ -593,6 +606,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tqx-XG-ThS" firstAttribute="centerX" secondItem="C84-YC-A8K" secondAttribute="centerX" id="rfI-q4-Kjw"/>
+                            <constraint firstAttribute="bottom" secondItem="tqx-XG-ThS" secondAttribute="bottom" constant="50" id="tAx-YA-hrt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="C84-YC-A8K"/>
                     </view>
                 </viewController>

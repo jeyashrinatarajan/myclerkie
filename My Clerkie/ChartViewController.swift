@@ -27,24 +27,25 @@ class ChartViewController: UIViewController,UICollectionViewDelegate, UICollecti
      
         //Vertical bar chart config
         let vbarchartConfig = BarsChartConfig(
-            valsAxisConfig: ChartAxisConfig(from: 0, to: 8, by: 2)
+            valsAxisConfig: ChartAxisConfig(from: 0, to: 1000, by: 250)
         )
         
-        let vbarchartframe = CGRect(x: 0, y: 50, width: 350, height: 350)
+        let vbarchartframe = CGRect(x: 0, y: 50, width: 366, height: 366)
         let vchart = BarsChart(
             frame: vbarchartframe,
             chartConfig: vbarchartConfig,
-            xTitle: "X axis",
-            yTitle: "Y axis",
+            xTitle: "Month",
+            yTitle: "Amount Saved",
             bars: [
-                ("A", 2),
-                ("B", 4.5),
-                ("C", 3),
-                ("D", 5.4),
-                ("E", 6.8),
-                ("F", 0.5)
+                ("Jan", 200),
+                ("Feb", 400),
+                ("Mar", 300),
+                ("Apr", 450),
+                ("May", 150),
+                ("June", 200),
+                ("July", 350)
             ],
-            color: UIColor.orange,
+            color: UIColor(red:3/255.0, green:188/255.0, blue:229/255.0, alpha:1.0),
             barWidth: 20
         )
         vbarChartView = vchart.view
@@ -52,22 +53,21 @@ class ChartViewController: UIViewController,UICollectionViewDelegate, UICollecti
         
         //Horizontal bar chart config
         let hbarchartConfig = BarsChartConfig(
-            valsAxisConfig: ChartAxisConfig(from: 0, to: 8, by: 2)
+            valsAxisConfig: ChartAxisConfig(from: 0, to: 1200, by: 200)
         )
         
-        let hbarchartframe = CGRect(x: 0, y: 50, width: 350, height: 350)
+        let hbarchartframe = CGRect(x: 0, y: 50, width: 366, height: 350)
         let hchart = BarsChart(
             frame: hbarchartframe,
             chartConfig: hbarchartConfig,
-            xTitle: "X axis",
-            yTitle: "Y axis",
+            xTitle: "Amount Spent ($)",
+            yTitle: "Item",
             bars: [
-                ("A", 2),
-                ("B", 4.5),
-                ("C", 3),
-                ("D", 5.4),
-                ("E", 6.8),
-                ("F", 0.5)
+                ("Rent", 1000),
+                ("Utility", 300),
+                ("Food", 350),
+                ("Gas", 100),
+                ("Misc.", 100)
             ],
             color: UIColor.orange,
             barWidth: 20,
@@ -91,7 +91,7 @@ class ChartViewController: UIViewController,UICollectionViewDelegate, UICollecti
             xTitle: "X axis",
             yTitle: "Y axis",
             lines: [
-                (chartPoints: [(4.0, 12.6), (5.2, 8), (9.3, 5.0), (9.1, 5.0), (16.0, 8.0)], color: UIColor.green)
+                (chartPoints: [(4.0, 12.6), (5.2, 8), (9.3, 5.0), (9.1, 5.0), (16.0, 8.0)], color: UIColor.brown)
                 
             ]
         )
@@ -129,8 +129,12 @@ class ChartViewController: UIViewController,UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var chartViews = [vbarChartView,hbarChartView,singlelineChartView,duolineChartView]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChartCell", for: indexPath as IndexPath)
+     var chartTitle = ["Monthly savings","Monthly expenditure","Single Line chart","Duo Line Chart"]
+     
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChartCell", for: indexPath as IndexPath) as! ChartViewCell
         cell.addSubview(chartViews[indexPath.row])
+        cell.chartTitleLabel.text = chartTitle[indexPath.row]
+        
         return cell
     }
     
