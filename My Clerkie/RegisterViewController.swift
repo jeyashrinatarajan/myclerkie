@@ -109,7 +109,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                     self.phonenumberTextfield.text = ""
                     self.passwordTextfield.text = ""
                     self.confirmTextfield.text = ""
-                    let alertController = UIAlertController(title: "Registration Successful", message: "Your registration is complete", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Registration Successful!", message: "Your registration is complete", preferredStyle: .alert)
                     
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
                         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")

@@ -37,7 +37,7 @@ class PasswordResetViewController: UIViewController,UITextFieldDelegate {
                 
                 if error != nil {
                     title = "Error!"
-                    message = (error?.localizedDescription)!
+                    message = "Oops!This is not a registred email."
                 } else {
                     title = "Success!"
                     message = "Password reset email sent."

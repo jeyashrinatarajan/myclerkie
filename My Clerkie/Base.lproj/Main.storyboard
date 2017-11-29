@@ -533,7 +533,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kw3-uJ-Cej">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="rcL-gn-c7J">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="50" id="rcL-gn-c7J">
                                     <size key="itemSize" width="366" height="500"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -670,12 +670,24 @@
                                             <action selector="resetPasswordPressed:" destination="DqK-Ex-V0e" eventType="touchUpInside" id="uT8-Hl-JVz"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xis-jz-jWQ">
+                                        <rect key="frame" x="15" y="25" width="40" height="30"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="tjQ-Re-uZA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="xis-jz-jWQ" firstAttribute="leading" secondItem="0Ws-Rt-THw" secondAttribute="leading" constant="15" id="8jZ-62-l2R"/>
                                     <constraint firstItem="Nwc-FW-teE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Ws-Rt-THw" secondAttribute="leading" constant="60" id="GSF-XU-0aF"/>
+                                    <constraint firstItem="xis-jz-jWQ" firstAttribute="top" secondItem="0Ws-Rt-THw" secondAttribute="top" constant="25" id="MuZ-uI-qip"/>
                                     <constraint firstItem="HLd-kG-jvK" firstAttribute="top" secondItem="0Ws-Rt-THw" secondAttribute="top" constant="120" id="NiQ-L6-mkE"/>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Nwc-FW-teE" secondAttribute="trailing" constant="60" id="ZTs-EK-yMz"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="xis-jz-jWQ" secondAttribute="trailing" constant="320" id="mA9-DX-j4G"/>
                                     <constraint firstItem="axl-n0-PC2" firstAttribute="top" secondItem="Nwc-FW-teE" secondAttribute="bottom" constant="35" id="t4U-Yu-dKL"/>
                                     <constraint firstItem="Nwc-FW-teE" firstAttribute="top" secondItem="HLd-kG-jvK" secondAttribute="bottom" constant="65" id="zSw-ep-1re"/>
                                 </constraints>
@@ -717,4 +729,7 @@
         <image name="chat_default" width="25" height="25"/>
         <image name="settings_default" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tjQ-Re-uZA"/>
+    </inferredMetricsTieBreakers>
 </document>
