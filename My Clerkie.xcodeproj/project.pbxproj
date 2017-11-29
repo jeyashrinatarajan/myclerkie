@@ -20,6 +20,7 @@
 		B71F7E331FC29093006A1CCF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E321FC29093006A1CCF /* ChatViewController.swift */; };
 		B71F7E351FC290A4006A1CCF /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F7E341FC290A4006A1CCF /* ChartViewController.swift */; };
 		B754AE9A1FCE2EEE00A32667 /* ChartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B754AE991FCE2EEE00A32667 /* ChartViewCell.swift */; };
+		B754AE9C1FCE73BE00A32667 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B754AE9B1FCE73BE00A32667 /* CopyableLabel.swift */; };
 		B7DD2F061FCE195300D42C5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71F7E121FC1192E006A1CCF /* LaunchScreen.storyboard */; };
 		C82D9B5F1E19662714187B33 /* Pods_My_Clerkie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9B15712B7851E63D54440F /* Pods_My_Clerkie.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		B71F7E321FC29093006A1CCF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		B71F7E341FC290A4006A1CCF /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		B754AE991FCE2EEE00A32667 /* ChartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewCell.swift; sourceTree = "<group>"; };
+		B754AE9B1FCE73BE00A32667 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B71F7E251FC11B42006A1CCF /* GradientView.swift */,
+				B754AE9B1FCE73BE00A32667 /* CopyableLabel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				B71F7E331FC29093006A1CCF /* ChatViewController.swift in Sources */,
 				B71F7E311FC2907C006A1CCF /* SettingsViewController.swift in Sources */,
 				B71F7E0C1FC1192E006A1CCF /* ViewController.swift in Sources */,
+				B754AE9C1FCE73BE00A32667 /* CopyableLabel.swift in Sources */,
 				B754AE9A1FCE2EEE00A32667 /* ChartViewCell.swift in Sources */,
 				B71F7E351FC290A4006A1CCF /* ChartViewController.swift in Sources */,
 				B71F7E0A1FC1192E006A1CCF /* AppDelegate.swift in Sources */,
